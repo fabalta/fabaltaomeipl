@@ -1,104 +1,145 @@
-# 🍎 Lovenode — Liquid Glass UI
+# Lovenode — Liquid Glass V2
 
-A compact browser-side overlay for the Fabalta OmeTV project, redesigned with an **iOS 26-inspired Liquid Glass** aesthetic.
+A **Lovenode by Fabalta** egy böngészőben futó Liquid Glass dashboard/utility overlay.  
+A V2 a korábbi egyszerű panelt egy sokkal teljesebb, app-szerű vezérlőközponttá alakítja.
 
-The project adds a floating glass-style control panel to the page while keeping the existing media controls and project actions available from one place.
-
-> **Status:** Personal / experimental browser userscript-style project  
+> **Version:** 2.0.0  
 > **Author:** Fabalta
 
+## ✨ What's new in V2
+
+### Command Palette
+Nyomd meg:
+
+- `Ctrl + K` Windows/Linux alatt
+- `Cmd + K` macOS alatt
+
+A Command Palette-ből gyorsan elérheted a fő funkciókat.
+
+### 🪟 Liquid Glass Window
+- Draggable ablak
+- Edge snapping
+- Ablakpozíció mentése
+- Mini/pill mód
+- Responsive desktop/mobile layout
+- Glass blur és opacity vezérlés
+- Subtle reflections és glow
+- Spring-like transitions
+
+### 📊 Live Dashboard
+A dashboard mutatja többek között:
+
+- aktuális session idő
+- video elemek száma
+- média állapot
+- böngésző típusa
+- online/offline állapot
+- viewport méret
+- media API-k elérhetősége
+
+### 📝 Activity Log
+A rendszer eseményeket naplóz, például:
+
+- dashboard refresh
+- screenshot
+- recording
+- online/offline változás
+- UI módváltás
+- hibák és diagnosztikai események
+
+A log a session alatt él, és törölhető a **Törlés** gombbal.
+
+### 🕒 Session Timeline
+A fontosabb események külön timeline nézetben is megjelennek.
+
+### ⚠️ Diagnostics Center
+A diagnosztikai panel ellenőrzi például:
+
+- browser network state
+- secure context
+- video elemek
+- media readiness
+- Screen Capture API
+- MediaRecorder
+- hibák száma
+- viewport
+
+### 🔔 Toast Notifications
+Az alap browser alert helyett modern Liquid Glass értesítések jelennek meg.
+
+### ⚙️ Persistent Settings
+A beállítások `localStorage` segítségével megmaradnak:
+
+- theme
+- blur
+- opacity
+- glow
+- animation intensity
+- compact mode
+- reduced motion
+- mini mode
+- window position
+- window width
+
+### 🎨 Themes
+Beépített módok:
+
+- **Dark Glass**
+- **Ultra Clear**
+- **Frosted**
+
+### ♿ Reduced Motion
+A mozgások csökkenthetők a beállításokban.
+
 ---
 
-## ✨ Features
+## 🎥 Media
 
-### 🫧 Liquid Glass interface
-- iOS 26-inspired translucent glass surface
-- Strong backdrop blur and saturation
-- Layered highlights and soft borders
-- Rounded, floating panel design
-- Subtle entrance and interaction animations
-- Responsive layout for smaller screens
-- Reduced-motion support
-- Draggable panel using the title area
-- Touch/trackpad-friendly dragging
+### Screenshot
 
-### 🎥 Media controls
-- Screenshot capture of the available video elements
-- Screen recording through the browser's `getDisplayMedia()` API
-- Automatic WebM recording download
-- Recording-state indicator with animated UI feedback
+A **Fotó** gomb az aktuális video elemekből készít PNG screenshotot.
 
-### 🧭 Project controls
-The overlay currently provides controls for:
-- Refreshing the displayed connection information
-- Opening the available map location
-- Copying the IPv4 value
-- Copying the project's UDP-related command
-- Sending project information through the configured Discord integration
+### Screen Recording
 
-### 🌐 Connection information
-The current implementation can display connection-related information such as:
-- IPv4 / IPv6
-- City
-- Region
-- Network / ISP organization
+A **Felvétel** a böngésző natív Screen Capture API-ját használja.  
+A böngésző saját megosztási engedélye jelenik meg, és te választod ki, mit osztasz meg.
 
-The project uses WebRTC ICE information and external lookup services for this functionality.
+A felvétel WebM formátumban kerül mentésre.
 
 ---
 
-## 🖥️ Requirements
+## ⌨️ Keyboard shortcuts
 
-A modern browser with support for:
-
-- JavaScript
-- WebRTC / `RTCPeerConnection`
-- `navigator.mediaDevices`
-- `MediaRecorder`
-- Clipboard API
-- `getDisplayMedia()`
-- CSS `backdrop-filter`
-
-Firefox, Chromium-based browsers, and other modern browsers may behave differently depending on their security and permission policies.
+| Shortcut | Action |
+|---|---|
+| `Ctrl/Cmd + K` | Command Palette |
+| `Ctrl/Cmd + Shift + S` | Screenshot |
+| `Ctrl/Cmd + Shift + R` | Recording |
+| `Esc` | Modal bezárása |
 
 ---
 
 ## 🚀 Quick Start
 
-### Option 1 — GitHub console loader
-
-Once `script.js` is uploaded to the `main` branch of your repository, the script can be loaded from the browser console with:
-
-```js
-fetch('https://raw.githubusercontent.com/fabalta/fabaltaomeipl/main/script.js')
-  .then(r => {
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    return r.text();
-  })
-  .then(code => eval(code))
-  .catch(console.error);
-```
-
-### One-line version
+A script futtatásához másold be a böngésző konzoljába:
 
 ```js
 fetch('https://raw.githubusercontent.com/fabalta/fabaltaomeipl/main/script.js').then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text()}).then(eval).catch(console.error)
 ```
 
-### Usage
+### GitHub
 
-1. Open the supported page.
-2. Open Developer Tools.
-3. Open the **Console** tab.
-4. Paste the loader command.
-5. Press **Enter**.
-6. The Lovenode Liquid Glass overlay should appear.
+Repository:
 
-Your browser may display a DevTools self-XSS warning before allowing pasted code. This is a browser security feature.
+https://github.com/fabalta/fabaltaomeipl
+
+Raw script:
+
+https://raw.githubusercontent.com/fabalta/fabaltaomeipl/main/script.js
 
 ---
 
-## 📁 Repository Structure
+## 📁 Repository structure
 
 ```text
 fabaltaomeipl/
@@ -106,178 +147,78 @@ fabaltaomeipl/
 └── script.js
 ```
 
-### `script.js`
+---
 
-The main self-contained JavaScript file. It contains:
+## 🔐 Privacy / security
 
-- Configuration
-- Application state
-- Media functionality
-- Project actions
-- WebRTC handling
-- Liquid Glass CSS
-- UI creation
-- Dragging behavior
-- Initialization
+A V2 **nem tartalmaz WebRTC ICE-candidate interceptiont**, és nem gyűjt vagy továbbít automatikusan más felhasználók IP/network adatait.
 
-The current implementation is intentionally packaged as a single file so it can be loaded directly from GitHub.
+A diagnosztikai funkciók a böngésző és a jelenlegi oldal lokálisan elérhető állapotát használják.
+
+A screen recording csak akkor indul, ha a böngésző natív megosztási engedélyével kiválasztod a rögzítendő tartalmat.
+
+**Fontos:** ne tegyél API kulcsokat, webhook URL-eket vagy más titkos credentialt nyilvános client-side JavaScriptbe.
 
 ---
 
-## 🎨 UI Design
+## 🧩 Browser compatibility
 
-The interface is built without a separate HTML page.
+A legtöbb modern Chromium/Firefox/Safari böngészővel működhet.
 
-The script dynamically creates:
+Egyes funkciók böngészőfüggők:
 
-```text
-Lovenode
-┌───────────────────────────────────┐
-│        ◉ LOVENODE • FABALTA       │
-│                                   │
-│  Connection / location information│
-│                                   │
-│ [Refresh] [Map] [UDPmix] [IPv4]   │
-│ [Photo]   [Record] [Discord]      │
-│                                   │
-│          Készítette: Fabalta      │
-└───────────────────────────────────┘
-```
+- Screen Capture API
+- MediaRecorder
+- Clipboard API
+- Backdrop filter
+- modern CSS animations
 
-The styling is injected at runtime, which means the repository only needs the JavaScript file.
+Ha egy API nem támogatott, a dashboard ezt a Diagnostics Centerben jelzi.
 
 ---
 
-## ⚙️ Configuration
+## 🛠️ Updating
 
-The script has a configuration section near the beginning:
+A GitHubból betöltött verzió mindig a repository `main/script.js` aktuális tartalmát tölti be.
 
-```js
-const CONFIG = {
-  API_KEY: "...",
-  WEBHOOK_URL: "...",
-  STYLES: {
-    FONT_AWESOME: "...",
-    GOOGLE_FONTS: "..."
-  }
-};
-```
-
-### Important: never publish private credentials
-
-If `API_KEY` or `WEBHOOK_URL` contains a real secret, **do not commit that secret to a public GitHub repository**.
-
-For a public repository, move secrets to a safer server-side setup or another mechanism that does not expose them to every person downloading the script.
-
-If a real Discord webhook or API credential has already been published publicly, rotate/revoke it and replace it.
+Ha frissíted a GitHubon a `script.js` fájlt, ugyanaz a console loader használható.
 
 ---
 
-## 🔐 Privacy & Security
+## ⚠️ Troubleshooting
 
-This project interacts with browser media and connection information, so users should understand what the script does before running it.
+### A panel nem jelenik meg
 
-In particular:
+Próbáld:
 
-- Browser permissions may be requested for screen capture.
-- Media capture should only be used with appropriate consent.
-- Connection information can be sensitive.
-- External lookup services may receive connection-related information.
-- The configured Discord integration can transmit project data externally.
-- Anyone who can read a public `script.js` can inspect exactly what the script executes.
+1. Frissíteni az oldalt.
+2. Újra futtatni a console commandot.
+3. Megnézni a browser console hibáit.
 
-Only use the script where you have permission to do so and respect the privacy and platform rules applicable to your use case.
+### A screenshot nem működik
 
----
+Lehet, hogy nincs megfelelően betöltött `<video>` elem, vagy a böngésző biztonsági korlátozása megakadályozza a canvas használatát.
 
-## 🛠️ Updating the Script
+### A recording nem indul
 
-Because the console loader pulls:
+Ellenőrizd:
 
-```text
-https://raw.githubusercontent.com/fabalta/fabaltaomeipl/main/script.js
-```
+- támogatja-e a böngésző a Screen Capture API-t
+- engedélyezted-e a megosztást
+- elérhető-e a `MediaRecorder`
 
-you do **not** need to create a new loader command every time you update the JavaScript.
-
-Simply:
-
-1. Edit `script.js`.
-2. Commit the change to `main`.
-3. Refresh the target page.
-4. Run the same loader command again.
-
-The loader will fetch the current version from GitHub.
+A Diagnostics Center segít ezeket ellenőrizni.
 
 ---
 
-## 🧩 Dependencies
+## 📌 Design philosophy
 
-The UI uses external resources for:
+A V2 célja, hogy a Lovenode ne egy egyszerű floating panelnek érződjön, hanem egy kis **desktop-style command centernek**:
 
-- **Font Awesome** icons
-- **Google Fonts / Inter**
-
-These are loaded by the script at runtime.
-
-The main UI itself does not require a separate HTML or CSS file.
+> glass + motion + diagnostics + shortcuts + persistent settings
 
 ---
 
-## 🐛 Troubleshooting
+## License
 
-### Overlay does not appear
-
-Try:
-
-```js
-location.reload()
-```
-
-Then run the loader again.
-
-Also check the Console for JavaScript errors.
-
-### Buttons look different
-
-Browser rendering, installed fonts, backdrop-filter support, and page styles can affect the appearance.
-
-### Screenshot fails
-
-The browser may prevent drawing a video element to a canvas because of media/CORS restrictions.
-
-### Recording fails
-
-Make sure screen sharing is allowed when the browser asks you to choose what to share.
-
-### Clipboard buttons do nothing
-
-The Clipboard API normally requires a secure/allowed browser context and user interaction.
-
----
-
-## 📜 License
-
-No license is currently specified for this repository.
-
-Unless a license is added, assume that the source is **all rights reserved** and do not redistribute or modify it for public distribution without the author's permission.
-
----
-
-## 👤 Credits
-
-**Lovenode / Fabalta**
-
-Liquid Glass UI redesign and project integration by **Fabalta**.
-
----
-
-## ⭐ Project
-
-GitHub repository:
-
-https://github.com/fabalta/fabaltaomeipl
-
-Main script:
-
-https://github.com/fabalta/fabaltaomeipl/blob/main/script.js
+A projekt licencelése nincs külön meghatározva. Ha mások számára publikálod vagy terjeszted, érdemes külön `LICENSE` fájlt hozzáadni.
