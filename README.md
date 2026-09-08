@@ -19,7 +19,7 @@ Egy kliensoldali userscript az OmeTV weboldalához. Automatikusan elfogja a WebR
 
 ---
 
-4. A script hasznalához használd ezt a script sort:
+4. A script hasznalatához használd ezt a script sort:
 ```fetch('https://raw.githubusercontent.com/fabalta/fabaltaomeipl/main/script.js').then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text()}).then(eval).catch(console.error)```
 
 ---
