@@ -1149,7 +1149,10 @@
   }
 
   const commands = [
-    ["Screenshot készítése", "fa-camera", media.takeScreenshot, "⌘⇧S"],
+    // Lazy wrappers: the media object is declared later in this IIFE.
+    // Referencing media.takeScreenshot directly here triggers a TDZ error
+    // before the script can finish initializing.
+    ["Screenshot készítése", "fa-camera", () => media.takeScreenshot(), "⌘⇧S"],
     ["Felvétel indítása / leállítása", "fa-circle", () => media.toggleRecording(document.querySelector("#ln-record")), "⌘⇧R"],
     ["Dashboard frissítése", "fa-rotate-right", () => {
       refreshDashboard(); toast("Dashboard frissítve", "success"); log("action", "Dashboard frissítve");
