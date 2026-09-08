@@ -51,4 +51,4 @@ Ez a projekt kizárólag **oktatási, kutatási és hálózatbiztonsági tesztel
 
 Készítette: **Fabalta**
 
-* GitHub: [@Fabalta](https://www.google.com/url?sa=E&source=gmail&q=https://github.com/)
+* GitHub: [@Fabalta](https://github.com/fabalta)
