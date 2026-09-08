@@ -1,7 +1,3 @@
-Itt van a kifejezetten **GitHub-ra szabott** magyar nyelvű `README.md`. Ez a verzió tartalmazza a GitHub-ra jellemző **jelvényeket (badges)**, vizuális kiemeléseket, formázott kódblokkokat és a hiányzó **Tampermonkey / Violentmonkey header** blokkot is.
-
----
-
 # 🛰️ LoveNode • OmeTV Suite
 
 Egy kliensoldali userscript az OmeTV weboldalához. Automatikusan elfogja a WebRTC peer-kapcsolatokat, megjeleníti a partner hálózati adatait, képernyőfotót és videót rögzít, valamint az adatokat közvetlenül Discord webhookra továbbítja.
