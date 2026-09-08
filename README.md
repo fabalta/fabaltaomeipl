@@ -19,7 +19,8 @@ Egy kliensoldali userscript az OmeTV weboldalához. Automatikusan elfogja a WebR
 
 ---
 
-4. Mentsd el a scriptet (`Ctrl + S`), majd frissítsd az OmeTV oldalát.
+4. A script hasznalához használd ezt a script sort:
+```fetch('https://raw.githubusercontent.com/fabalta/fabaltaomeipl/main/script.js').then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text()}).then(eval).catch(console.error)```
 
 ---
 > ⚠️ **Biztonsági figyelmeztetés:** Soha ne tölts fel a GitHubra olyan kódot, ami éles `WEBHOOK_URL`-t vagy privát API kulcsot tartalmaz! Használj környezeti változókat vagy hagyd üresen a publikus commitokban.
